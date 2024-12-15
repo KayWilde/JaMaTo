@@ -11,6 +11,7 @@ import SwiftData
 @main
 struct JaMaToApp: App {
     var sharedModelContainer: ModelContainer
+    
         init() {
             do {
                 let appPreferences = ModelConfiguration(schema: Schema([ Preference.self, ]), isStoredInMemoryOnly: false)
@@ -24,7 +25,7 @@ struct JaMaToApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainView()
+            SplashScreenView()
         }
         .modelContainer(sharedModelContainer)
     }
