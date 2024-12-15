@@ -1,5 +1,5 @@
 # JaMaTo
-Just another management tool - For managing alsociation data (members) payments
+Just another management tool - For managing association data (members) payments
 
 This is a project for creating a MacOS Tool for mabaging association data. It is focused on Germany "gemeinnützige einetragene Vereine" which means literally non-profit registered association.
 
