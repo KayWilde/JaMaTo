@@ -10,22 +10,21 @@ import SwiftData
 
 @main
 struct JaMaToApp: App {
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
+    var sharedModelContainer: ModelContainer
+        init() {
+            do {
+                let appPreferences = ModelConfiguration(schema: Schema([ Preference.self, ]), isStoredInMemoryOnly: false)
+                let appItems = ModelConfiguration(schema: Schema([ Item.self, ]), isStoredInMemoryOnly: false)
+                
+                sharedModelContainer = try ModelContainer(for: Preference.self, Item.self, configurations: appPreferences, appItems)
+            } catch {
+                fatalError("Failed to configure SwiftData container.")
+            }
         }
-    }()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
         .modelContainer(sharedModelContainer)
     }

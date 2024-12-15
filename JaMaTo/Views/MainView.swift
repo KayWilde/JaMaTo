@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  JaMaTo
 //
 //  Created by Kay Wilde on 15.12.24.
@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct ContentView: View {
+struct MainView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
 
@@ -56,6 +56,6 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    MainView()
         .modelContainer(for: Item.self, inMemory: true)
 }
